@@ -1,0 +1,32 @@
+.ProcessProducts{
+	width:35%;
+	display:inline-block;
+	float:left;	
+	padding:10px;
+	box-sizing:border-box;
+	margin-right:10px;
+}
+
+.ProcessProducts-head div{
+	display:inline-block;
+	text-align:right;
+	font-weight:bold;
+}
+
+
+
+.wd--2{
+	width:20%;
+}
+
+.wd--3{
+	width:30%;
+}
+
+.wd--4{
+	width:60%;
+}
+
+.wd--5{
+	width:50%;
+}

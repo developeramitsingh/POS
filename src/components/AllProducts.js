@@ -10,7 +10,7 @@ const AllProducts = (props)=>{
     	let data  = props.allproducts.filter(product=>{    		
     		return product.name==e.currentTarget.dataset.name
     	})
-    	console.log(data[0])
+    	
     	props.addProducts(data[0])
     } 
 

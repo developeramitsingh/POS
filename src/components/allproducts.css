@@ -5,6 +5,8 @@
 	align-items: center;
 	flex-wrap: wrap;
     background: #ecf0f1;
+    width: 60%;
+    float: right;
 }
 .product-card {
 	width: 110px;
