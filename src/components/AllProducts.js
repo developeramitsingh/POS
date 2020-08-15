@@ -1,10 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from "react-redux"
 import uniqid from "uniqid"
 import './allproducts.css'
 import colors from '../res/colors'
+import {addProducts} from '../actions/Actions'
 
-const AllProducts = (props)=>{	
+const AllProducts = (props)=>{
+    const handleAddProduct = (e)=>{
+    	let data  = props.allproducts.filter(product=>{    		
+    		return product.name==e.currentTarget.dataset.name
+    	})
+    	console.log(data[0])
+    	props.addProducts(data[0])
+    } 
+
 	let products = props.allproducts.map((product,i)=>{
 					let image;
 					
@@ -13,7 +22,7 @@ const AllProducts = (props)=>{
 					}catch(e){}
 					
 					return(
-							<div key={uniqid()} style={{backgroundImage:'url('+image+')'}} className="product-card" >
+							<div key={uniqid()} data-name={product.name} style={{backgroundImage:'url('+image+')'}} className="product-card" onClick={handleAddProduct} >
 								<div style={{background:colors[i]}}>
 									<div>{product.name}</div>
 									<div className="hidden">{product.price}</div>
@@ -36,4 +45,4 @@ const mapStateToProps =(state)=>{
   }
 }
 
-export default connect(mapStateToProps)(AllProducts);
+export default connect(mapStateToProps, {addProducts})(AllProducts);
