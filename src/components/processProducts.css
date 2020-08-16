@@ -26,7 +26,7 @@
 
 .deleteProduct{
 	width:30px;
-	
+	cursor: pointer;
 	text-align:center;
 }
 

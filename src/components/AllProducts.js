@@ -8,7 +8,7 @@ import {addProducts} from '../actions/Actions'
 const AllProducts = (props)=>{
     const handleAddProduct = (e)=>{
     	let data  = props.allproducts.filter(product=>{    		
-    		return product.name==e.currentTarget.dataset.name
+    		return product.name===e.currentTarget.dataset.name
     	})
     	
     	props.addProducts(data[0])

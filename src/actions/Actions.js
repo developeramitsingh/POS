@@ -10,20 +10,24 @@ export const addProducts = (data)=>(dispatch, getState)=>{
 	let addedItem;
 
 	let products = getState().ProcessProductsReducer.cart;
-	console.log(data, "data")
-	if(products[data.name]){
-		console.log("already")
+	
+	if(products[data.name]){		
 		products[data.name]["quantity"] = products[data.name]["quantity"]+1;
 		products[data.name]["total"] = products[data.name]["total"]*products[data.name]["quantity"];
 	}else{
-		console.log("new")
+		
 		products[data.name] = {}
-		products[data.name]["quantity"] = 1;
-		products[data.name]["price"] = data["price"];			
+		products[data.name]["price"] = data["price"];
+		products[data.name]["quantity"] = 1;					
 		products[data.name]["total"] = data["price"];
 	}
 
    	
-	console.log(products, "Final product");
+	console.log(products)
 	dispatch({type:ADD_PRODUCT, payload:products})
+}
+
+
+export const deleteProduct =(name)=>(dispatch)=>{
+	dispatch({type:DELETE_PRODUCT,payload:name})
 }
