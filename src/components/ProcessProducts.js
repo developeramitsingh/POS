@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import close from '../images/close.png'
 import './processProducts.css'
+import TotalTable from './TotalTable'
 
 import {deleteProduct, customQuantity} from '../actions/Actions'
 
@@ -12,10 +13,11 @@ const ProcessProducts= (props)=>{
 			let state = props.cartState.cart;
 
 			if(id === "decreQuant"){				
-				(state[e.currentTarget.dataset.name]["quantity"] !=0) && (state[e.currentTarget.dataset.name]["quantity"] -=1) 
-			}else if(id === "increQuant"){
-				
-				state[e.currentTarget.dataset.name]["quantity"] +=1
+				(state[e.currentTarget.dataset.name]["quantity"] !=0) && (state[e.currentTarget.dataset.name]["quantity"] -=1); 
+				(state[e.currentTarget.dataset.name]["quantity"] !=0) && (state[e.currentTarget.dataset.name]["total"] -= state[e.currentTarget.dataset.name]["price"]); 
+			}else if(id === "increQuant"){				
+				state[e.currentTarget.dataset.name]["quantity"] +=1;
+				(state[e.currentTarget.dataset.name]["quantity"] !=0) && (state[e.currentTarget.dataset.name]["total"] = state[e.currentTarget.dataset.name]["price"]*state[e.currentTarget.dataset.name]["quantity"]) 
 			}
 			props.customQuantity(state)
 		}
@@ -50,6 +52,7 @@ const ProcessProducts= (props)=>{
 					{keys.length==0?"THERE ARE NO PRODUCTS":cartProducts}
 					
 				</div>
+				<TotalTable/>
 			</div>
 		)	
 	
