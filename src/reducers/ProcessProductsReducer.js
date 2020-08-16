@@ -1,15 +1,17 @@
 import {ADD_PRODUCT, DELETE_PRODUCT} from '../actionTypes/ActionTypes'
 
 const initState = {
-	cart:[]
+	cart:{
+			"sweter":{price:2000, quantity:1, total:4000},
+	        "comuter":{price:2000, quantity:1, total:4000}
+	    }
 }
 
 const ProcessProductsReducer =(state= initState, action)=>{
 	switch(action.type){
 		case ADD_PRODUCT:
-			return{
-				...state,
-				cart:[...state.cart, action.payload]
+			return{				
+				cart:action.payload
 			}
 		break;
 		case DELETE_PRODUCT:

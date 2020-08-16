@@ -1,19 +1,38 @@
 .ProcessProducts{
-	width:35%;
+	width:40%;
 	display:inline-block;
 	float:left;	
 	padding:10px;
-	box-sizing:border-box;
-	margin-right:10px;
+	box-sizing:border-box;	
+	background: #ecf0f1;
 }
 
-.ProcessProducts-head div{
+.ProcessProducts-head div, .ProcessProducts-cart div{
 	display:inline-block;
-	text-align:right;
+	text-align:center;
 	font-weight:bold;
+	
 }
 
 
+.ProcessProducts-head{
+	padding:10px;
+}
+
+.ProcessProducts-cart{
+	padding:20px;
+	background:#fff;
+}
+
+.deleteProduct{
+	width:30px;
+	
+	text-align:center;
+}
+
+.wd--1{
+	width:10%;
+}
 
 .wd--2{
 	width:20%;
