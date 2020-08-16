@@ -14,8 +14,7 @@ export const addProducts = (data)=>(dispatch, getState)=>{
 	if(products[data.name]){		
 		products[data.name]["quantity"] = products[data.name]["quantity"]+1;
 		products[data.name]["total"] = products[data.name]["total"]*products[data.name]["quantity"];
-	}else{
-		
+	}else{		
 		products[data.name] = {}
 		products[data.name]["price"] = data["price"];
 		products[data.name]["quantity"] = 1;					
@@ -30,4 +29,8 @@ export const addProducts = (data)=>(dispatch, getState)=>{
 
 export const deleteProduct =(name)=>(dispatch)=>{
 	dispatch({type:DELETE_PRODUCT,payload:name})
+}
+
+export const customQuantity = (data)=>(dispatch)=>{
+	dispatch({type:ADD_PRODUCT, payload:data})
 }

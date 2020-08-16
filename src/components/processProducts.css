@@ -17,17 +17,41 @@
 
 .ProcessProducts-head{
 	padding:10px;
+
 }
 
 .ProcessProducts-cart{
 	padding:20px;
 	background:#fff;
+	display: flex;
+	justify-content: center;
+	align-items: middle;
+	flex-wrap: wrap;
 }
 
 .deleteProduct{
 	width:30px;
 	cursor: pointer;
 	text-align:center;
+}
+
+.PP-Quant-box {
+	border: 1px solid #ecf0f1;
+    padding: 0px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.quantity-btn{
+	padding: 0px 10px;
+    border-radius: 6px;	
+    vertical-align: middle;
+    text-align: center;
+    margin:5px;
+    background: #d9e7ea;
+    cursor: pointer;
+    color:#fff;
+
 }
 
 .wd--1{

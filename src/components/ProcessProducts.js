@@ -3,9 +3,22 @@ import {connect} from 'react-redux'
 import close from '../images/close.png'
 import './processProducts.css'
 
-import {deleteProduct} from '../actions/Actions'
+import {deleteProduct, customQuantity} from '../actions/Actions'
 
 const ProcessProducts= (props)=>{
+
+		const handleIncre = (e)=>{
+			let id = e.target.id
+			let state = props.cartState.cart;
+
+			if(id === "decreQuant"){				
+				(state[e.currentTarget.dataset.name]["quantity"] !=0) && (state[e.currentTarget.dataset.name]["quantity"] -=1) 
+			}else if(id === "increQuant"){
+				
+				state[e.currentTarget.dataset.name]["quantity"] +=1
+			}
+			props.customQuantity(state)
+		}
 	
 		let productobj = props.cartState.cart;
 		console.log("original ", productobj)
@@ -17,8 +30,8 @@ const ProcessProducts= (props)=>{
 					<div className="wd--1"><img onClick={props.deleteProduct} className="deleteProduct" src={close}/></div>
 					<div className="wd--2">{productkey}</div>
 					<div className="wd--3">{productobj[productkey]["price"]}</div>
-					<div className="wd--2">{productobj[productkey]["quantity"]}</div>
-					<div className="wd--2">{productobj[productkey]["total"]}</div>	
+					<div className="wd--2" data-name={productkey} onClick={handleIncre}><span className="quantity-btn" id="decreQuant">-</span><span className="PP-Quant-box">{productobj[productkey]["quantity"]}</span><span className="quantity-btn" id="increQuant">+</span></div>
+					<div className="wd--2">{productobj[productkey]["total"]+" EUR"}</div>	
 				</React.Fragment>
 			)
 		})
@@ -49,4 +62,4 @@ const mapStateToProps=(state)=>{
 	}
 }
 
-export default connect(mapStateToProps, {deleteProduct})(ProcessProducts);
+export default connect(mapStateToProps, {deleteProduct, customQuantity})(ProcessProducts);
