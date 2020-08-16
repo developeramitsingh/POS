@@ -2,8 +2,8 @@ import {ADD_PRODUCT, DELETE_PRODUCT} from '../actionTypes/ActionTypes'
 
 const initState = {
 	cart:{
-			"sweter":{price:2000, quantity:1, total:4000},
-	        "comuter":{price:2000, quantity:1, total:4000}
+			"sweater":{price:2000, quantity:1, total:2000},
+	        "comuter":{price:2000, quantity:1, total:2000}
 	    }
 }
 

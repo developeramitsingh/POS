@@ -4,19 +4,10 @@ import close from '../images/close.png'
 import './processProducts.css'
 
 const ProcessProducts = (props)=>{
-	let cartProducts = props.cartState.map(product=>{
-		let keys  = Object.keys(product);
-		console.log(product[keys])
-		return(
-				<React.Fragment key={keys}>
-					<div className="wd--1"><img className="deleteProduct" src={close}/></div>
-					<div className="wd--2">{keys}</div>
-					<div className="wd--3">{product[keys]["price"]}</div>
-					<div className="wd--2">{product[keys]["quantity"]}</div>
-					<div className="wd--2">{product[keys]["total"]}</div>	
-				</React.Fragment>
-			)
-	})
+	
+		let keys  = Object.keys(props.cartState);
+		
+		console.log(keys, keys)
 
 	return(
 			<div className="ProcessProducts">
@@ -28,7 +19,7 @@ const ProcessProducts = (props)=>{
 					<div className="wd--2">TOTAL</div>
 				</div>
 				<div className="ProcessProducts-cart">
-					{props.cartState.length===0?"THERE ARE NO PRODUCTS":cartProducts}
+					{props.cartState.length===0?"THERE ARE NO PRODUCTS":"cartProducts"}
 				</div>
 			</div>
 		)
